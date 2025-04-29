@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <h1>CV Application</h1>
+      <h1 className="text-3xl font-bold tracking-tight text-gray-900">CV Application</h1>
 
       <div>
         <h2>General information</h2>
@@ -62,16 +62,19 @@ function App() {
         </div>
       </div>
 
-      <div>
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <h2>
           Educational experience
         </h2>
 
         <div>
-          <div>
-            <label htmlFor="schoolname">School Name</label>
+          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <label 
+              htmlFor="schoolname"
+              className="block text-sm/6 font-medium text-gray-900">School Name</label>
             <input 
-              type="text" name="schoolname" id="schoolname" 
+              type="text" name="schoolname" id="schoolname"
+              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               value={person.schoolname} onChange={(event) => handleEducationUpdate(event, 'schoolname')} />
           </div>
 
