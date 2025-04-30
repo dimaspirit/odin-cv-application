@@ -3,6 +3,8 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 import './App.css'
 
+import Input from './components/Input';
+
 function App() {
   const [person, setPerson] = useState({
     name: '',
@@ -40,26 +42,12 @@ function App() {
 
       <div>
         <h2>General information</h2>
-        <div>
-          <label htmlFor="name">Full name</label>
-          <input 
-            type="text" name="name" id="name" 
-            value={person.name} onChange={(event) => handlePersonUpdate(event, 'name')} />
-        </div>
 
-        <div>
-          <label htmlFor="age">Age</label>
-          <input 
-            type="number" name="age" id="age"
-            value={person.age} onChange={(event) => handlePersonUpdate(event, 'age')} />
-        </div>
+        <Input name="name" label="Full name" value={person.name} onChangeHandler={handlePersonUpdate} />
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <input 
-            type="email" name="email" id="email" 
-            value={person.email} onChange={(event) => handlePersonUpdate(event, 'email')} />
-        </div>
+        <Input type="number" name="age" label="Age" value={person.age} onChangeHandler={handlePersonUpdate} />
+
+        <Input type="email" name="email" label="Email" value={person.email} onChangeHandler={handlePersonUpdate} />
       </div>
 
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -68,22 +56,11 @@ function App() {
         </h2>
 
         <div>
-          <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <label 
-              htmlFor="schoolname"
-              className="block text-sm/6 font-medium text-gray-900">School Name</label>
-            <input 
-              type="text" name="schoolname" id="schoolname"
-              className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-              value={person.schoolname} onChange={(event) => handleEducationUpdate(event, 'schoolname')} />
-          </div>
+          <Input name="schoolname" label="School Name" value={education.schoolname} onChangeHandler={handleEducationUpdate} />
 
-          <div>
-            <label htmlFor="titleofstudy">Title of study</label>
-            <input 
-              type="text" name="titleofstudy" id="titleofstudy" 
-              value={person.titleofstudy} onChange={(event) => handleEducationUpdate(event, 'titleofstudy')} />
-          </div>
+          <Input name="titleofstudy" label="Title of study" value={education.titleofstudy} onChangeHandler={handleEducationUpdate} />
+
+          <Input name="titleofstudy" label="Title of study" value={education.titleofstudy} onChangeHandler={handleEducationUpdate} />
 
           <div>
             <label htmlFor="studystart">Dates of studing</label>
