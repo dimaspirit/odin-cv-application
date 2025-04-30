@@ -1,6 +1,6 @@
 const Input = ({ type = "text", name, label, value, onChangeHandler }) => {
   return (
-    <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+    <div className="mt-4">
       <label 
         htmlFor={name}
         className="block text-sm/6 font-medium text-gray-900">{label}</label>

@@ -37,43 +37,36 @@ function App() {
 
 
   return (
-    <>
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900">CV Application</h1>
-
-      <div>
-        <h2>General information</h2>
-
-        <Input name="name" label="Full name" value={person.name} onChangeHandler={handlePersonUpdate} />
-
-        <Input type="number" name="age" label="Age" value={person.age} onChangeHandler={handlePersonUpdate} />
-
-        <Input type="email" name="email" label="Email" value={person.email} onChangeHandler={handlePersonUpdate} />
-      </div>
-
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-        <h2>
-          Educational experience
-        </h2>
-
-        <div>
-          <Input name="schoolname" label="School Name" value={education.schoolname} onChangeHandler={handleEducationUpdate} />
-
-          <Input name="titleofstudy" label="Title of study" value={education.titleofstudy} onChangeHandler={handleEducationUpdate} />
-
-          <Input name="titleofstudy" label="Title of study" value={education.titleofstudy} onChangeHandler={handleEducationUpdate} />
-
-          <div>
-            <label htmlFor="studystart">Dates of studing</label>
-            <input 
-              type="date" name="studystart" id="studystart"
-              value={person.studystart} onChange={(event) => handleEducationUpdate(event, 'studystart')} />
-            <input 
-              type="date" name="studyend" id="studyend"
-              value={person.studyend} onChange={(event) => handleEducationUpdate(event, 'studyend')} />
-          </div>
+    <div className="min-h-full bg-gray-100">
+      <header class="bg-white shadow-sm">
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900">CV Application</h1>
         </div>
-      </div>
-    </>
+      </header>
+
+      <main>
+        <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <div className="max-w-sm p-6 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
+            <h2 class="text-base/7 font-semibold text-gray-900">General information</h2>
+            <Input name="name" label="Full name" value={person.name} onChangeHandler={handlePersonUpdate} />
+            <Input type="number" name="age" label="Age" value={person.age} onChangeHandler={handlePersonUpdate} />
+            <Input type="email" name="email" label="Email" value={person.email} onChangeHandler={handlePersonUpdate} />
+          </div>
+
+          <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
+            <h2 class="text-base/7 font-semibold text-gray-900">Educational experience</h2>
+            <Input name="schoolname" label="School Name" value={education.schoolname} onChangeHandler={handleEducationUpdate} />
+
+            <Input name="titleofstudy" label="Title of study" value={education.titleofstudy} onChangeHandler={handleEducationUpdate} />
+            
+            <Input type="date" name="studystart" label="Start date of study" value={education.studystart} onChangeHandler={handleEducationUpdate} />
+            <Input type="date" name="studyend" label="End date of study" value={education.studyend} onChangeHandler={handleEducationUpdate} />
+
+          </div>
+
+        </div>
+      </main>
+    </div>
   )
 }
 
