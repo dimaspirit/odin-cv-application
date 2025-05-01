@@ -35,8 +35,8 @@ function App() {
         </div>
       </header>
 
-      <main>
-        <div className="mx-auto max-w-7xl px-4 py-6">
+      <main className="grid grid-cols-3 gap-6 px-4 py-6">
+        <div className="grid-col-1">
           <GeneralInformationForm personInfo={person} onUpdate={setPerson} />
 
           <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
@@ -48,6 +48,12 @@ function App() {
             <Input type="date" name="studyend" label="End date of study" value={education.studyend} onChangeHandler={handleEducationUpdate} />
 
             <button type="button" className="py-2.5 px-5 me-2 mb-2 mt-7 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Add more education</button>
+          </div>
+        </div>
+
+        <div className='col-span-2'>
+          <div className="p-6 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
+            CV HERE
           </div>
         </div>
       </main>
