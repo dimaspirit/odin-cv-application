@@ -21,7 +21,7 @@ const GeneralInformationForm = ({personInfo, onUpdate}) => {
   }
 
   return (
-    <div className="p-6 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
+    <div className="p-6 mb-6 bg-white border rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
       <h2 className="text-base/7 font-semibold text-gray-900">General information</h2>
       <Input name="name" label="Full name" value={person.name} onChangeHandler={handlePersonUpdate} />
       <Input type="number" name="age" label="Age" value={person.age} onChangeHandler={handlePersonUpdate} />

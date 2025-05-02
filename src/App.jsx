@@ -3,29 +3,20 @@ import './App.css'
 
 import Input from './components/Input';
 import GeneralInformationForm from './components/GeneralInformation';
+import EductionForm from './components/EducationForm';
 
 function App() {
-  const [person, setPerson] = useState({
-    name: '',
-    age: '',
-    email: '',
-  });
+  const [person, setPerson] = useState({ name: '', age: '', email: '' });
+  const [educationList, setEducationList] = useState([]);
 
-  const [education, setEducation] = useState({
-    schoolname: '',
-    titleofstudy: '',
-    studystart: '',
-    studyend: '',
-  });
+  const educationAddHandler = (educationInfo) => {
+    const education = {
+      ...educationInfo,
+      uuid: crypto.randomUUID(),
+    };
 
-  const handleEducationUpdate = (event, prop) => {
-    const { value } = event.target;
-    setEducation({
-      ...education,
-      [prop]: value,
-    })
+    setEducationList([...educationList, education]);
   }
-
 
   return (
     <div className="min-h-full bg-gray-100">
@@ -38,22 +29,20 @@ function App() {
       <main className="grid grid-cols-3 gap-6 px-4 py-6">
         <div className="grid-col-1">
           <GeneralInformationForm personInfo={person} onUpdate={setPerson} />
-
-          <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
-            <h2 className="text-base/7 font-semibold text-gray-900">Educational experience</h2>
-
-            <Input name="schoolname" label="School Name" value={education.schoolname} onChangeHandler={handleEducationUpdate} />
-            <Input name="titleofstudy" label="Title of study" value={education.titleofstudy} onChangeHandler={handleEducationUpdate} />
-            <Input type="date" name="studystart" label="Start date of study" value={education.studystart} onChangeHandler={handleEducationUpdate} />
-            <Input type="date" name="studyend" label="End date of study" value={education.studyend} onChangeHandler={handleEducationUpdate} />
-
-            <button type="button" className="py-2.5 px-5 me-2 mb-2 mt-7 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Add more education</button>
-          </div>
+          <EductionForm onUpdate={educationAddHandler} />
         </div>
 
         <div className='col-span-2'>
           <div className="p-6 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
-            CV HERE
+            <div>
+              <h2>{person.name}</h2>
+              <h4>{person.age}</h4>
+              <h4>{person.email}</h4>
+            </div>
+
+            <ul>
+              {educationList.map((ed) => <li key={ed.uuid}>{ed.schoolname}</li>)}
+            </ul>
           </div>
         </div>
       </main>
