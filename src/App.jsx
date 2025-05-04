@@ -34,15 +34,25 @@ function App() {
 
         <div className='col-span-2'>
           <div className="p-6 mb-6 bg-white border border-gray-200 rounded-lg shadow-sm border-b border-gray-900/10 pb-12">
-            <div>
-              <h2>{person.name}</h2>
-              <h4>{person.age}</h4>
-              <h4>{person.email}</h4>
+            <div className="text-2xl">
+              <h2 class="text-2xl/7 font-bold text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">{person.name}</h2>
+              <div class="mt-2 flex items-center text-sm text-gray-500 gap-1">
+                <h4>{person.age && `${person.age} years`}</h4>
+                <h4>{person.email && `| ${person.email}`}</h4>
+              </div>
             </div>
 
-            <ul>
-              {educationList.map((ed) => <li key={ed.uuid}>{ed.schoolname}</li>)}
-            </ul>
+            <dl class="divide-y divide-gray-100">
+              {educationList.map((ed) => 
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm/6 font-medium text-gray-900">{ed.schoolname}</dt>
+                  <dd class="mt-1 text-sm/6 text-gray-700 sm:col-span-2 sm:mt-0">
+                    <p>{ed.titleofstudy}</p>
+                    <p>{(ed.studystart && ed.studyend) && `${ed.studystart} -- ${ed.studyend}`}</p>
+                  </dd>
+                </div>
+              )}
+            </dl>
           </div>
         </div>
       </main>
